@@ -25,6 +25,9 @@ data class Guide(
     @field: NotBlank
     val type: GuideType,
 
+    @field: NotBlank
+    val enable: Boolean = true,
+
     @field: CreatedDate
     val createAt: Instant? = null,
 
