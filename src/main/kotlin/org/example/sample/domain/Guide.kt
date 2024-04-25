@@ -9,7 +9,6 @@ import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate
 import java.time.Instant
 
-
 data class Guide(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -3,7 +3,7 @@ package org.example.sample
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
-@SpringBootApplication(scanBasePackages = ["."])
+@SpringBootApplication
 class WebfluxStarterApplication
 
 fun main(args: Array<String>) {

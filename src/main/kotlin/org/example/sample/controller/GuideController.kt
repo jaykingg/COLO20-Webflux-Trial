@@ -1,9 +1,9 @@
 package org.example.sample.controller
 
-import kotlinx.coroutines.flow.Flow
 import org.example.sample.domain.Guide
 import org.example.sample.service.GuideService
 import org.springframework.web.bind.annotation.*
+import reactor.core.publisher.Flux
 
 @RestController
 @RequestMapping("/api/guide")
@@ -13,7 +13,7 @@ class GuideController(
 
     @GetMapping
     suspend fun getAllGuides(
-    ): Flow<Guide> = guideService.findAllGuide()
+    ): Flux<Guide> = guideService.findAllGuide()
 
 
     @GetMapping("/{id}")
