@@ -1,7 +1,7 @@
-package org.example.webfluxstarter.guideservice.service
+package org.example.webfluxstarter.service
 
-import org.example.webfluxstarter.guideservice.domain.Guide
-import org.example.webfluxstarter.guideservice.repository.GuideRepository
+import org.example.webfluxstarter.domain.Guide
+import org.example.webfluxstarter.repository.GuideRepository
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service

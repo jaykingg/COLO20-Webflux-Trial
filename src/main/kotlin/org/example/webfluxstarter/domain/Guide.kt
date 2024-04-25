@@ -1,4 +1,4 @@
-package org.example.webfluxstarter.guideservice.domain
+package org.example.webfluxstarter.domain
 
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType

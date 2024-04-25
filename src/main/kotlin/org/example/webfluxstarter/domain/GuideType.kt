@@ -1,4 +1,4 @@
-package org.example.webfluxstarter.guideservice.domain
+package org.example.webfluxstarter.domain
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

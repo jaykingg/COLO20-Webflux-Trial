@@ -1,10 +1,10 @@
-package org.example.webfluxstarter.guideservice.controller
+package org.example.webfluxstarter.controller
 
 import jakarta.validation.constraints.Min
 import org.example.webfluxstarter.core.PagedView
 import org.example.webfluxstarter.core.toPagedView
-import org.example.webfluxstarter.guideservice.domain.Guide
-import org.example.webfluxstarter.guideservice.service.GuideService
+import org.example.webfluxstarter.domain.Guide
+import org.example.webfluxstarter.service.GuideService
 import org.springframework.data.domain.PageRequest
 import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort
