@@ -11,8 +11,6 @@ import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories
 @Configuration
 @EnableR2dbcRepositories
 class R2DBConfiguration : AbstractR2dbcConfiguration() {
-
-
     // TODO database configuration information property 로 빼거나 AWS Secret Manager 사용
     @Bean
     override fun connectionFactory(): ConnectionFactory =

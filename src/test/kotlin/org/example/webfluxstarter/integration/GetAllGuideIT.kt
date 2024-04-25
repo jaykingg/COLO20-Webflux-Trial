@@ -1,4 +1,4 @@
 package org.example.webfluxstarter.integration
 
-class GetAllGuideTestIT {
+class GetAllGuideIT {
 }
