@@ -1,4 +1,4 @@
-package org.example.webfluxstarter.config
+package org.example.sample.config
 
 import io.r2dbc.postgresql.PostgresqlConnectionConfiguration
 import io.r2dbc.postgresql.PostgresqlConnectionFactory

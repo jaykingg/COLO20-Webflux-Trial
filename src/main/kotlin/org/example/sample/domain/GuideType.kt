@@ -1,4 +1,4 @@
-package org.example.webfluxstarter.domain
+package org.example.sample.domain
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

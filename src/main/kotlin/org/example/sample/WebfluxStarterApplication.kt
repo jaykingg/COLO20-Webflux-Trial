@@ -1,4 +1,4 @@
-package org.example.webfluxstarter
+package org.example.sample
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

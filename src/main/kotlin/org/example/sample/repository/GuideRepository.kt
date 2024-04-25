@@ -1,6 +1,6 @@
-package org.example.webfluxstarter.repository
+package org.example.sample.repository
 
-import org.example.webfluxstarter.domain.Guide
+import org.example.sample.domain.Guide
 import org.springframework.data.repository.kotlin.CoroutineCrudRepository
 import org.springframework.stereotype.Repository
 

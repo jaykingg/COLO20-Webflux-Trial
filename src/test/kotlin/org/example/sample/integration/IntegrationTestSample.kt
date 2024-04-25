@@ -1,4 +1,4 @@
-package org.example.webfluxstarter.integration
+package org.example.sample.integration
 
 import io.kotest.core.spec.style.BehaviorSpec
 import org.springframework.boot.test.context.SpringBootTest
@@ -96,7 +96,7 @@ class IntegrationTestSample(
 
             }
             Then("비정상 동작을 정의하여 테스트한다.") {
-                
+
             }
         }
     }

@@ -1,8 +1,8 @@
-package org.example.webfluxstarter.controller
+package org.example.sample.controller
 
 import kotlinx.coroutines.flow.Flow
-import org.example.webfluxstarter.domain.Guide
-import org.example.webfluxstarter.service.GuideService
+import org.example.sample.domain.Guide
+import org.example.sample.service.GuideService
 import org.springframework.web.bind.annotation.*
 
 @RestController

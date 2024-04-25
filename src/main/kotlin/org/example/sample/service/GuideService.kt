@@ -1,8 +1,8 @@
-package org.example.webfluxstarter.service
+package org.example.sample.service
 
 import kotlinx.coroutines.flow.Flow
-import org.example.webfluxstarter.domain.Guide
-import org.example.webfluxstarter.repository.GuideRepository
+import org.example.sample.domain.Guide
+import org.example.sample.repository.GuideRepository
 import org.springframework.stereotype.Service
 
 @Service

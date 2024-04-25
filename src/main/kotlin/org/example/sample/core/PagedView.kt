@@ -1,4 +1,4 @@
-package org.example.webfluxstarter.core
+package org.example.sample.core
 
 import org.springframework.data.domain.Page
 

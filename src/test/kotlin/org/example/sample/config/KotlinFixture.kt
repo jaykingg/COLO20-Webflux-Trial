@@ -1,4 +1,4 @@
-package org.example.webfluxstarter.config
+package org.example.sample.config
 
 import com.appmattus.kotlinfixture.kotlinFixture
 
