@@ -1,7 +1,7 @@
 package org.example.sample.service
 
 import org.example.sample.domain.Guide
-import org.example.sample.payload.InsertGuidePayload
+import org.example.sample.payload.CreateGuidePayload
 import org.example.sample.payload.UpdateGuidePayload
 import org.example.sample.repository.GuideRepository
 import org.springframework.stereotype.Service
@@ -17,7 +17,7 @@ class GuideService(
 
     fun getGuide(id: Long): Mono<Guide> = guideRepository.findById(id)
 
-    fun saveGuide(payload: InsertGuidePayload): Mono<Guide> {
+    fun saveGuide(payload: CreateGuidePayload): Mono<Guide> {
         return guideRepository.save(
             Guide(
                 title = payload.title,

@@ -1,7 +1,7 @@
 package org.example.sample.controller
 
 import org.example.sample.domain.Guide
-import org.example.sample.payload.InsertGuidePayload
+import org.example.sample.payload.CreateGuidePayload
 import org.example.sample.payload.UpdateGuidePayload
 import org.example.sample.service.GuideService
 import org.springframework.validation.annotation.Validated
@@ -27,7 +27,7 @@ class GuideController(
 
     @PostMapping
     fun saveGuide(
-        @Validated @RequestBody payload: InsertGuidePayload
+        @Validated @RequestBody payload: CreateGuidePayload
     ): Mono<Guide> = guideService.saveGuide(payload)
 
     @PatchMapping
