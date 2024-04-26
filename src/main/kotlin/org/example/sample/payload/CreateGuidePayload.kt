@@ -2,16 +2,11 @@ package org.example.sample.payload
 
 import jakarta.validation.Valid
 import jakarta.validation.constraints.NotBlank
-import jakarta.validation.constraints.NotNull
 import org.example.sample.domain.GuideType
 import org.hibernate.validator.constraints.Length
 
-data class UpdateGuidePayload(
-    @field: NotNull
-    val id: Long,
-
+data class CreateGuidePayload(
     @field: NotBlank
-    @field: Length(max = 20)
     val title: String,
 
     @field: NotBlank
@@ -21,5 +16,5 @@ data class UpdateGuidePayload(
     @field: Valid
     val type: GuideType,
 
-    val enable: Boolean?
+    val enable: Boolean? = true
 )
