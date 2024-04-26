@@ -3,14 +3,17 @@ spring:
     activate:
       on-profile: local
 
+  data:
+    r2dbc:
+      repositories:
+        enabled: true
+
   r2dbc:
-    url: jdbc:postgresql://localhost:5432/test_db
+    url: r2dbc:mysql://localhost:3306/test_db?useUnicode=true&serverTimezone=UTC
     username: test
     password: test
-  jpa:
-    hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        show_sql: true
-    database-platform: postgresql
+
+logging:
+  level:
+
+    org.springframework.r2dbc.core: debug
