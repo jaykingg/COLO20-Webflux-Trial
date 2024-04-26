@@ -3,12 +3,12 @@ package org.example.sample.domain
 import com.fasterxml.jackson.annotation.JsonProperty
 
 enum class GuideType(val label: String) {
-    @JsonProperty("all")
+    @field: JsonProperty("all")
     ALL("전체 가이드"),
 
-    @JsonProperty("division")
+    @field: JsonProperty("division")
     DIVISION("부문 가이드"),
 
-    @JsonProperty("team")
+    @field: JsonProperty("team")
     TEAM("팀 가이드")
 }
