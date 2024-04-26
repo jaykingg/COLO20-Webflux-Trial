@@ -36,7 +36,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
     implementation("io.github.serpro69:kotlin-faker:2.0.0-rc.4")
     implementation("com.appmattus.fixture:fixture-kotest:1.2.0")
-    implementation("org.postgresql:r2dbc-postgresql:1.0.5.RELEASE")
+    implementation("io.asyncer:r2dbc-mysql:1.1.0")
 
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("org.postgresql:postgresql")
