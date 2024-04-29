@@ -25,7 +25,4 @@ data class UpdateGuidePayload(
     @field: Schema(description = "Guide 타입")
     @field: Valid
     val type: GuideType,
-
-    @field: Schema(description = "Guide 활성/비활성 상태")
-    val enable: Boolean?
 )
