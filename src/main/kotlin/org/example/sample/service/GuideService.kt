@@ -5,6 +5,7 @@ import org.example.sample.payload.CreateGuidePayload
 import org.example.sample.payload.UpdateGuidePayload
 import org.example.sample.repository.GuideRepository
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 
@@ -17,6 +18,7 @@ class GuideService(
 
     fun getGuide(id: Long): Mono<Guide> = guideRepository.findById(id)
 
+    @Transactional
     fun saveGuide(payload: CreateGuidePayload): Mono<Guide> {
         return guideRepository.save(
             Guide(
@@ -27,35 +29,30 @@ class GuideService(
         )
     }
 
-    /**
-     * TODO mapNotNull 제거하는 방향으로
-     * TODO copy 하여 save 시 데이터가 1개 더 늘어나는 현상있음
-     */
+    @Transactional
     fun updateGuide(payload: UpdateGuidePayload): Mono<Guide> {
-        guideRepository.findById(payload.id).mapNotNull {
-            return@mapNotNull guideRepository.save(
+        return guideRepository.findById(payload.id).flatMap {
+            guideRepository.save(
                 it.copy(
-                    id = it.id,
                     title = payload.title,
                     author = payload.author,
                     type = payload.type
                 )
             )
         }
-
-        return Mono.empty()
     }
 
-    /**
-     * TODO Update 와 같은 현상
-     */
+    @Transactional
     fun disableGuide(id: Long): Mono<Long> {
-        return guideRepository.findById(id).mapNotNull {
-            it.copy(
-                enable = false
-            ).id
+        return guideRepository.findById(id).flatMap {
+            guideRepository.save(
+                it.copy(
+                    isEnable = !it.isEnable
+
+                )
+            )
+        }.mapNotNull {
+            it.id
         }
     }
-
-
 }
