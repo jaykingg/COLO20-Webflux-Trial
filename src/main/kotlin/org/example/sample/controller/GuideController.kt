@@ -34,6 +34,7 @@ class GuideController(
         @Valid @RequestBody payload: CreateGuidePayload
     ): Mono<Guide> = guideService.saveGuide(payload)
 
+
     @Operation(summary = "Guide 수정하기")
     @PutMapping
     fun updateGuide(
@@ -41,7 +42,7 @@ class GuideController(
     ): Mono<ApiResponse<Guide>> = guideService.updateGuide(payload)
 
     @Operation(summary = "Guide 상태 변경하기")
-    @PatchMapping("/{id}")
+    @PutMapping("/{id}")
     fun disableGuide(@PathVariable id: Long): Mono<Long> = guideService.disableGuide(id)
 
 }

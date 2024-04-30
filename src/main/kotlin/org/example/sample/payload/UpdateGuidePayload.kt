@@ -10,7 +10,7 @@ import org.hibernate.validator.constraints.Length
 data class UpdateGuidePayload(
     @field: Schema(description = "Guide Id")
     @field: NotNull
-    val id: Long,
+    val id: Long?,
 
     @field: Schema(description = "Guide 제목")
     @field: NotBlank

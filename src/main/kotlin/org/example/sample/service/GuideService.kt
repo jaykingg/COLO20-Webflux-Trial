@@ -52,7 +52,7 @@ class GuideService(
 
     @Transactional
     fun updateGuide(payload: UpdateGuidePayload): Mono<ApiResponse<Guide>> {
-        return guideRepository.findById(payload.id)
+        return guideRepository.findById(payload.id!!)
             .map {
                 val updatedGuide = it.copy(
                     title = payload.title,
@@ -73,6 +73,7 @@ class GuideService(
                         data = null
                     )
                 )
+
             }
     }
 
