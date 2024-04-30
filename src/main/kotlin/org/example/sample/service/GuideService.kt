@@ -65,16 +65,6 @@ class GuideService(
                     data = updatedGuide
                 )
             }
-            .onErrorResume { error ->
-                Mono.just(
-                    ApiResponse(
-                        code = HttpStatus.INTERNAL_SERVER_ERROR.value(),
-                        message = error.message,
-                        data = null
-                    )
-                )
-
-            }
     }
 
     @Transactional
