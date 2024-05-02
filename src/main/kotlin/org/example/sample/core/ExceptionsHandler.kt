@@ -15,18 +15,17 @@ class ExceptionsHandler {
         val response = ErrorResponse(
             code = HttpStatus.BAD_REQUEST.value(),
             error = HttpStatus.BAD_REQUEST.reasonPhrase,
-            message = ex.message ?: "잘못된 요청입니다."
+            message = "잘못된 요청입니다."
         )
         return ResponseEntity(response, HttpStatus.BAD_REQUEST)
     }
 
     @ExceptionHandler(NotFoundException::class)
     fun handleNotFound(ex: NotFoundException, exchange: ServerWebExchange): ResponseEntity<ErrorResponse> {
-        println("Handling BadRequestException: ${ex.message}")
         val response = ErrorResponse(
             code = HttpStatus.NOT_FOUND.value(),
             error = HttpStatus.NOT_FOUND.reasonPhrase,
-            message = ex.message ?: "요청한 내용을 찾을 수 없습니다."
+            message = ex.message
         )
         return ResponseEntity(response, HttpStatus.NOT_FOUND)
     }
@@ -36,7 +35,7 @@ class ExceptionsHandler {
         val response = ErrorResponse(
             code = HttpStatus.INTERNAL_SERVER_ERROR.value(),
             error = HttpStatus.INTERNAL_SERVER_ERROR.reasonPhrase,
-            message = ex.message ?: "서버 오류가 발생했습니다."
+            message = ex.message
         )
         return ResponseEntity(response, HttpStatus.INTERNAL_SERVER_ERROR)
     }

@@ -3,13 +3,13 @@ package org.example.sample.controller
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
-import org.example.sample.core.ApiResponse
+import kotlinx.coroutines.flow.Flow
 import org.example.sample.domain.Guide
+import org.example.sample.domain.GuideType
 import org.example.sample.payload.CreateGuidePayload
 import org.example.sample.payload.UpdateGuidePayload
 import org.example.sample.service.GuideService
 import org.springframework.web.bind.annotation.*
-import reactor.core.publisher.Mono
 
 @Tag(name = "Guide API", description = "Guide API for Sample")
 @RestController
@@ -18,31 +18,38 @@ class GuideController(
     private val guideService: GuideService
 ) {
 
-    @Operation(summary = "Guide 전체 가져오기")
+    @Operation(summary = "Guide 전체 조회")
     @GetMapping
-    fun getAllGuides(): Mono<ApiResponse<List<Guide>>> = guideService.getAllGuides()
+    suspend fun getAllGuides(): Flow<Guide> = guideService.getAllGuides()
 
-    @Operation(summary = "Guide 단일 건 가져오기")
+    @Operation(summary = "Guide 단일 조회")
     @GetMapping("/{id}")
-    fun getGuide(
+    suspend fun getGuide(
         @PathVariable id: Long
-    ): Mono<Guide> = guideService.getGuide(id)
+    ): Guide = guideService.getGuide(id)
 
-    @Operation(summary = "Guide 저장하기")
+    @Operation(summary = "Type 으로 Guide 조회")
+    @GetMapping("/type")
+    suspend fun getGuideByType(
+        @RequestParam type: GuideType
+    ): Flow<Guide> = guideService.getGuideByType(type)
+
+    @Operation(summary = "Guide 단일 저장")
     @PostMapping
-    fun saveGuide(
+    suspend fun saveGuide(
         @Valid @RequestBody payload: CreateGuidePayload
-    ): Mono<Guide> = guideService.saveGuide(payload)
+    ): Guide = guideService.saveGuide(payload)
 
 
-    @Operation(summary = "Guide 수정하기")
+    @Operation(summary = "Guide 수정")
     @PutMapping
-    fun updateGuide(
+    suspend fun updateGuide(
         @Valid @RequestBody payload: UpdateGuidePayload
-    ): Mono<ApiResponse<Guide>> = guideService.updateGuide(payload)
+    ): Guide = guideService.updateGuide(payload)
 
-    @Operation(summary = "Guide 상태 변경하기")
+    @Operation(summary = "Guide 상태 변경")
     @PutMapping("/{id}")
-    fun disableGuide(@PathVariable id: Long): Mono<Long> = guideService.disableGuide(id)
+    suspend fun disableGuide(@PathVariable id: Long): Long = guideService.disableGuide(id)
+
 
 }
