@@ -117,7 +117,55 @@ Micro services & 1:1 mapping database
     - "Domain" 이 중심이 되게끔 구조 설정
 
 ~~~bash
-
+├── build.gradle.kts
+├── gradlew
+├── gradlew.bat
+├── settings.gradle.kts
+└── src
+    ├── main
+    │   ├── kotlin
+    │   │   └── org
+    │   │       └── example
+    │   │           └── sample
+    │   │               ├── WebfluxStarterApplication.kt
+    │   │               ├── config
+    │   │               │   └── SwaggerConfig.kt
+    │   │               ├── controller
+    │   │               │   └── GuideController.kt
+    │   │               ├── core
+    │   │               │   ├── ApiResponse.kt
+    │   │               │   ├── ErrorResponse.kt
+    │   │               │   ├── Exceptions.kt
+    │   │               │   └── ExceptionsHandler.kt
+    │   │               ├── domain
+    │   │               │   ├── Guide.kt
+    │   │               │   └── GuideType.kt
+    │   │               ├── payload
+    │   │               │   ├── CreateGuidePayload.kt
+    │   │               │   └── UpdateGuidePayload.kt
+    │   │               ├── repository
+    │   │               │   └── GuideRepository.kt
+    │   │               └── service
+    │   │                   └── GuideService.kt
+    │   └── resources
+    │       ├── application-local.yaml
+    │       ├── application.yaml
+    │       └── schema
+    │           └── Guide-Create.sql
+    └── test
+        ├── kotlin
+        │   └── org
+        │       └── example
+        │           └── sample
+        │               ├── config
+        │               │   ├── Faker.kt
+        │               │   └── KotlinFixture.kt
+        │               ├── controller
+        │               └── integration
+        │                   ├── GetAllGuideIT.kt
+        │                   └── IntegrationTestSample.kt
+        └── resources
+            └── application-test.yaml
 ~~~
 
 - Api Docs
