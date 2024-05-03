@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
     id("org.springframework.boot") version "3.2.5"
@@ -68,6 +69,7 @@ dependencies {
     testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.3")
     testImplementation("io.kotest:kotest-assertions-core:5.8.0")
     testImplementation("io.kotest:kotest-runner-junit5:5.8.0")
+    testImplementation("io.r2dbc:r2dbc-h2:1.0.0.RELEASE")
 }
 
 tasks.withType<KotlinCompile> {
@@ -79,4 +81,11 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+    environment(
+        "spring.profiles.active", "Test"
+    )
+}
+
+tasks.getByName<BootJar>("bootJar") {
+    mainClass = "src/main/kotlin/org/example/sample/WebfluxStarterApplication.kt"
 }
