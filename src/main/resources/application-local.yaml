@@ -32,3 +32,4 @@ logging:
   level:
     org.springframework.r2dbc.core: debug
     org.springframework.r2dbc: debug
+    root: debug
