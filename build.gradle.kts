@@ -6,7 +6,6 @@ plugins {
     id("io.spring.dependency-management") version "1.1.4"
     kotlin("jvm") version "1.9.23"
     kotlin("plugin.spring") version "1.9.23"
-    kotlin("plugin.jpa") version "1.9.23"
 }
 
 group = "org.example"
@@ -87,5 +86,4 @@ tasks.withType<Test> {
 }
 
 tasks.getByName<BootJar>("bootJar") {
-    mainClass = "src/main/kotlin/org/example/sample/WebfluxStarterApplication.kt"
 }
