@@ -3,6 +3,7 @@ package org.example.sample.domain
 import com.fasterxml.jackson.annotation.JsonFormat
 import io.swagger.v3.oas.annotations.media.Schema
 import jakarta.validation.constraints.NotBlank
+import org.example.sample.view.GuideView
 import org.hibernate.validator.constraints.Length
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id
@@ -43,4 +44,14 @@ data class Guide(
     @LastModifiedDate
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "UTC")
     val updateAt: Instant? = null
+
+)
+
+fun Guide.toView() = GuideView(
+    title = title,
+    author = author,
+    type = type,
+    isEnable = isEnable,
+    createAt = createAt,
+    updateAt = updateAt
 )

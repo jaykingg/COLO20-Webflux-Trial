@@ -4,11 +4,14 @@ import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
 import jakarta.validation.Valid
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import org.example.sample.domain.Guide
 import org.example.sample.domain.GuideType
+import org.example.sample.domain.toView
 import org.example.sample.payload.CreateGuidePayload
 import org.example.sample.payload.UpdateGuidePayload
 import org.example.sample.service.GuideService
+import org.example.sample.view.GuideView
 import org.springframework.web.bind.annotation.*
 
 @Tag(name = "Guide API", description = "Guide API for Sample")
@@ -20,7 +23,7 @@ class GuideController(
 
     @Operation(summary = "Guide 전체 조회")
     @GetMapping
-    suspend fun getAllGuides(): Flow<Guide> = guideService.getAllGuides()
+    suspend fun getAllGuides(): Flow<GuideView> = guideService.getAllGuides().map { it.toView() }
 
     @Operation(summary = "Guide 단일 조회")
     @GetMapping("/{id}")
