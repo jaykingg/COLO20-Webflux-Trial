@@ -183,8 +183,8 @@ Micro services & 1:1 mapping database
 2. Custom Response(Response, Error) ✅
 2. Swagger ✅
 3. Test code convention✅
-4. Test code migration(basic -> coroutine))▶️
-4. Docker
+4. Test code migration(basic -> coroutine))✅
+4. Docker️️▶️
 5. Jwt
 6. Project Guide Md 작성
 6. Caching
