@@ -17,7 +17,7 @@ Colo 2.0 project 를 위한 Start version 을 Set up 한다.
 ### ✍🏻 Sketch
 
 Micro services & 1:1 mapping database
-<그림>
+<img width="850" alt="스크린샷 2024-05-07 오전 10 57 24" src="https://github.com/jaykingg/Webflux-starter/assets/20733918/a3406475-52a1-4551-8dff-05063e7f96b5">
 ***
 
 ### 🟠 Server Data Exchange
