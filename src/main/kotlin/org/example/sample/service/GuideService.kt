@@ -4,8 +4,8 @@ import kotlinx.coroutines.flow.Flow
 import org.example.sample.core.NotFoundException
 import org.example.sample.domain.Guide
 import org.example.sample.domain.GuideType
-import org.example.sample.payload.CreateGuidePayload
-import org.example.sample.payload.UpdateGuidePayload
+import org.example.sample.payload.GuideCreatePayload
+import org.example.sample.payload.GuideUpdatePayload
 import org.example.sample.repository.GuideRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -22,7 +22,7 @@ class GuideService(
     suspend fun getGuideByType(type: GuideType): Flow<Guide> = guideRepository.findByType(type)
 
     @Transactional
-    suspend fun saveGuide(payload: CreateGuidePayload): Guide {
+    suspend fun saveGuide(payload: GuideCreatePayload): Guide {
         return guideRepository.save(
             Guide(
                 title = payload.title,
@@ -33,7 +33,7 @@ class GuideService(
     }
 
     @Transactional
-    suspend fun updateGuide(payload: UpdateGuidePayload): Guide {
+    suspend fun updateGuide(payload: GuideUpdatePayload): Guide {
         val guide = guideRepository.findById(payload.id!!) ?: throw NotFoundException()
         return guideRepository.save(
             guide.copy(

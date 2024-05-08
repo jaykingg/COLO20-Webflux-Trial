@@ -8,8 +8,8 @@ import kotlinx.coroutines.flow.map
 import org.example.sample.domain.Guide
 import org.example.sample.domain.GuideType
 import org.example.sample.domain.toView
-import org.example.sample.payload.CreateGuidePayload
-import org.example.sample.payload.UpdateGuidePayload
+import org.example.sample.payload.GuideCreatePayload
+import org.example.sample.payload.GuideUpdatePayload
 import org.example.sample.service.GuideService
 import org.example.sample.view.GuideView
 import org.springframework.web.bind.annotation.*
@@ -40,14 +40,14 @@ class GuideController(
     @Operation(summary = "Guide 단일 저장")
     @PostMapping
     suspend fun saveGuide(
-        @Valid @RequestBody payload: CreateGuidePayload
+        @Valid @RequestBody payload: GuideCreatePayload
     ): Guide = guideService.saveGuide(payload)
 
 
     @Operation(summary = "Guide 수정")
     @PutMapping
     suspend fun updateGuide(
-        @Valid @RequestBody payload: UpdateGuidePayload
+        @Valid @RequestBody payload: GuideUpdatePayload
     ): Guide = guideService.updateGuide(payload)
 
     @Operation(summary = "Guide 상태 변경")
