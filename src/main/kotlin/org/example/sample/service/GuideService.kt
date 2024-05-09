@@ -1,8 +1,10 @@
 package org.example.sample.service
 
 import kotlinx.coroutines.flow.Flow
-import org.example.sample.core.NotFoundException
+import org.example.sample.core.exceptions.ErrorCodeException
+import org.example.sample.core.exceptions.NotFoundException
 import org.example.sample.domain.Guide
+import org.example.sample.domain.GuideError
 import org.example.sample.domain.GuideType
 import org.example.sample.payload.GuideCreatePayload
 import org.example.sample.payload.GuideUpdatePayload
@@ -52,6 +54,11 @@ class GuideService(
                 isEnable = !guide.isEnable
             )
         ).id!!
+    }
+
+    suspend fun customGuideErrorTest(word: String): String {
+        if (word == "test") throw ErrorCodeException.of(GuideError.TEST_GUIDE_SAMPLE_ERROR)
+        return "api response ok"
     }
 
 }

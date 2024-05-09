@@ -54,5 +54,9 @@ class GuideController(
     @PutMapping("/{id}")
     suspend fun disableGuide(@PathVariable id: Long): Long = guideService.disableGuide(id)
 
+    @Operation(summary = "Guide Custom Error 테스트")
+    @GetMapping("/test")
+    suspend fun customGuideErrorTest(@RequestParam word: String): String = guideService.customGuideErrorTest(word)
+
 
 }
