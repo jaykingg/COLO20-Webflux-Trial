@@ -15,7 +15,6 @@ import org.springframework.test.web.reactive.server.WebTestClient
 import org.springframework.test.web.reactive.server.expectBody
 
 @SpringBootTest
-
 @ActiveProfiles("test")
 @AutoConfigureWebTestClient
 class GetAllGuideIT(
