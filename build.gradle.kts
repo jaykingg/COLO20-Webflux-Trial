@@ -40,7 +40,6 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
 
     /* Spring API Docs*/
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.0.4")
 
     /* test code 작성을 위한 faker */
