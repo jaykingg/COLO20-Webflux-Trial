@@ -1,4 +1,4 @@
-package org.example.sample.core
+package org.example.sample.core.response
 
 data class ApiResponse<T>(
     val code: Int,
