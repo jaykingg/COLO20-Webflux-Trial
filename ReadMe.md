@@ -117,9 +117,9 @@ Micro services & 1:1 mapping database
     - "Domain" 이 중심이 되게끔 구조 설정
 
 ~~~bash
+├── Dockerfile
+├── ReadMe.md
 ├── build.gradle.kts
-├── gradlew
-├── gradlew.bat
 ├── settings.gradle.kts
 └── src
     ├── main
@@ -133,23 +133,32 @@ Micro services & 1:1 mapping database
     │   │               ├── controller
     │   │               │   └── GuideController.kt
     │   │               ├── core
-    │   │               │   ├── ApiResponse.kt
-    │   │               │   ├── ErrorResponse.kt
-    │   │               │   ├── Exceptions.kt
-    │   │               │   └── ExceptionsHandler.kt
+    │   │               │   ├── exceptions
+    │   │               │   │   ├── AbstractErrorCodeException.kt
+    │   │               │   │   ├── BaseError.kt
+    │   │               │   │   ├── ErrorCodeException.kt
+    │   │               │   │   ├── ErrorResponse.kt
+    │   │               │   │   ├── ExceptionTranslator.kt
+    │   │               │   │   ├── Exceptions.kt
+    │   │               │   │   └── SimpleFieldError.kt
+    │   │               │   └── response
+    │   │               │       └── ApiResponse.kt
     │   │               ├── domain
     │   │               │   ├── Guide.kt
+    │   │               │   ├── GuideError.kt
     │   │               │   └── GuideType.kt
     │   │               ├── payload
-    │   │               │   ├── CreateGuidePayload.kt
-    │   │               │   └── UpdateGuidePayload.kt
+    │   │               │   ├── GuideCreatePayload.kt
+    │   │               │   └── GuideUpdatePayload.kt
     │   │               ├── repository
     │   │               │   └── GuideRepository.kt
-    │   │               └── service
-    │   │                   └── GuideService.kt
+    │   │               ├── service
+    │   │               │   └── GuideService.kt
+    │   │               └── view
+    │   │                   └── GuideView.kt
     │   └── resources
     │       ├── application-local.yaml
-    │       ├── application.yaml
+    │       ├── application-prod.yaml
     │       └── schema
     │           └── Guide-Create.sql
     └── test
@@ -159,13 +168,16 @@ Micro services & 1:1 mapping database
         │           └── sample
         │               ├── config
         │               │   ├── Faker.kt
-        │               │   └── KotlinFixture.kt
-        │               ├── controller
+        │               │   ├── KotlinFixture.kt
+        │               │   └── TestDBInitializer.kt
         │               └── integration
-        │                   ├── GetAllGuideIT.kt
-        │                   └── IntegrationTestSample.kt
+        │                   ├── IntegrationTestSample.kt
+        │                   └── guidecontroller
+        │                       └── GetAllGuideIT.kt
         └── resources
-            └── application-test.yaml
+            ├── application-test.yaml
+            └── schema
+                └── Guide-Create.sql
 ~~~
 
 - Api Docs
