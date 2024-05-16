@@ -1,25 +1,25 @@
-def PROJECT_NAME = 'jenkins-test-0.0.1-SNAPSHOT'
 pipeline {
     agent {
         docker {
-            image 'gradle:6.8.3-jdk11'
-            args '-v $HOME/.gradle:/home/gradle/.gradle'
+            image 'gradle:7.4.2-jdk17' // Gradle 7.4.2와 Java 17을 포함한 Docker 이미지 사용
+            args '-v $HOME/.gradle:/home/gradle/.gradle' // Gradle 캐시 사용
         }
     }
 
-    environment {
-        EC2_IP = 'http://ec2-3-39-195-186.ap-northeast-2.compute.amazonaws.com:8080/'
-        JAR_FILE = 'build/libs/webflux-starter-0.0.1-SNAPSHOT.jar'
-        DEPLOY_DIR = '/home/ec2-user/'
-    }
+//     environment {
+//         EC2_IP = 'your-ec2-public-ip'
+//         SSH_KEY_PATH = 'path/to/your-key.pem'
+//         JAR_FILE = 'build/libs/your-kotlin-app.jar'
+//         DEPLOY_DIR = '/home/ec2-user/'
+//     }
 
     stages {
-//         stage('Checkout') {
+        stage('Checkout') {
 //             steps {
 //                 // Git 리포지토리에서 소스 코드를 체크아웃
 //                 git credentialsId: 'your-credentials-id', url: 'https://github.com/your-repo.git'
 //             }
-//         }
+        }
 
         stage('Build') {
             steps {
@@ -41,8 +41,8 @@ pipeline {
 //                 sh """
 //                     scp -i ${SSH_KEY_PATH} ${JAR_FILE} ec2-user@${EC2_IP}:${DEPLOY_DIR}
 //                     ssh -i ${SSH_KEY_PATH} ec2-user@${EC2_IP} << EOF
-//                     pkill -f your-webflux-app.jar
-//                     nohup java -jar ${DEPLOY_DIR}/your-webflux-app.jar > /dev/null 2>&1 &
+//                     pkill -f your-kotlin-app.jar
+//                     nohup java -jar ${DEPLOY_DIR}/your-kotlin-app.jar > /dev/null 2>&1 &
 //                     EOF
 //                 """
 //             }
