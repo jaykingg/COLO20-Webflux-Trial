@@ -14,12 +14,12 @@ pipeline {
 //     }
 
     stages {
-        stage('Checkout') {
+//         stage('Checkout') {
 //             steps {
 //                 // Git 리포지토리에서 소스 코드를 체크아웃
 //                 git credentialsId: 'your-credentials-id', url: 'https://github.com/your-repo.git'
 //             }
-        }
+//         }
 
         stage('Build') {
             steps {
