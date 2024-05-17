@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'gradle:7.4.2-jdk17' // Gradle 7.4.2와 Java 17을 포함한 Docker 이미지 사용
-            args '-v $HOME/.gradle:/home/gradle/.gradle' // Gradle 캐시 사용
+            args '-u root -v $HOME/.gradle:/home/gradle/.gradle' // Gradle 캐시 사용
         }
     }
 
@@ -23,14 +23,12 @@ pipeline {
 
         stage('Build') {
             steps {
-                // Gradle을 사용하여 빌드
                 sh './gradlew clean build'
             }
         }
 
         stage('Test') {
             steps {
-                // Gradle을 사용하여 테스트 실행
                 sh './gradlew test'
             }
         }
